@@ -1,1 +1,9 @@
-This is the body of the page. It will be inserted into the layout.ejs file. The layout.ejs file contains the structure of the page, while the index.ejs file contains the content of the page.
+<h2>Recently added books</h2>
+<ul>
+    <% books.forEach(book => { %>
+        <li>
+            <img height="150" width="AUTO" style="object-fit: contain;" src="<%= book.coverImagePath %>" alt="<%= book.title %>">
+            <p><%= book.title %></p>
+        </li>
+    <% }) %>
+</ul>

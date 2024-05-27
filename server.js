@@ -11,6 +11,8 @@ const ejs = require('ejs');
 
 const indexRouter = require('./routes/routes');
 const authorRouter = require('./routes/authors');
+const bookRouter = require('./routes/books');
+
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: false }));
 
@@ -36,6 +38,7 @@ app.use(bodyParser.urlencoded({limit:'10mb',extended:true}))
 // Routes
 app.use(indexRouter)
 app.use('/authors',authorRouter)
+app.use('/books',bookRouter)
 app.use(express.static('public'));
 
 
