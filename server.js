@@ -3,8 +3,12 @@ if (process.env.NODE_ENV !== 'production') {
 
 }
 const express = require('express');
+const bodyParser = require('body-parser');
 const app = express();
 
+// Increase the limit to handle larger files
+app.use(bodyParser.json({ limit: '50mb' }));
+app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
 
 const expressLayouts = require('express-ejs-layouts');
 const ejs = require('ejs');
@@ -12,9 +16,6 @@ const ejs = require('ejs');
 const indexRouter = require('./routes/routes');
 const authorRouter = require('./routes/authors');
 const bookRouter = require('./routes/books');
-
-const bodyParser = require('body-parser');
-app.use(bodyParser.urlencoded({ extended: false }));
 
 // Database
 const mongoose = require('mongoose');

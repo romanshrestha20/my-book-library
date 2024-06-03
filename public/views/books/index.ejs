@@ -16,12 +16,15 @@
     <button type="submit">Search</button>
 </form>
 <br>
-<div>
 
-    <ul>
+<span>
+
+    
+    <div>
+
         <% books.forEach(book => { %>
             <img src="<%= book.coverImagePath %>" alt="A book Cover" height="150" width="100">
-            <li><%= book.title %></li>
-            <% }) %>
-        </ul>
-    </div>
+            <%= book.title %> by <%= book.author.name %>
+            <% }) %>   
+        </div>
+</span>
