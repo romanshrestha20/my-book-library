@@ -5,6 +5,8 @@ if (process.env.NODE_ENV !== 'production') {
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
+const methodOverride = require('method-override');
+app.use(methodOverride('_method'));
 
 // Increase the limit to handle larger files
 app.use(bodyParser.json({ limit: '50mb' }));

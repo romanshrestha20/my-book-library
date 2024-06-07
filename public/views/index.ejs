@@ -1,9 +1,13 @@
 <h2>Recently added books</h2>
 <ul>
     <% books.forEach(book => { %>
+        <a href="/books/<%= book.id %>">
         <li>
             <img height="150" width="AUTO" style="object-fit: contain;" src="<%= book.coverImagePath %>" alt="<%= book.title %>">
             <p><%= book.title %></p>
         </li>
+        <%- include('../views/partials/deleteForm', {url:`/books/${book.id}`}) %>
+    </a>
+    
     <% }) %>
 </ul>
