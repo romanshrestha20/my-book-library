@@ -9,37 +9,44 @@
     <link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet">
     <link href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css"
         rel="stylesheet">
+    <link rel="stylesheet" href="\stylesheets\main.css">
+    <link rel="stylesheet" href="/stylesheets/tailwind.css">
+
 </head>
 
 <body>
     <!-- Your body content here -->
-    <%- include('../partials/header.ejs') %>
-        <%- include('../partials/errorMessage.ejs') %>
-            <%- body %>
-                <!-- FilePond scripts -->
-                <script 
-                    src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js"></script>
-                <script 
-                    src="https://unpkg.com/filepond-plugin-image-resize/dist/filepond-plugin-image-resize.js"></script>
-                <script 
-                    src="https://unpkg.com/filepond-plugin-file-encode/dist/filepond-plugin-file-encode.js"></script>
-                <script  src="https://unpkg.com/filepond/dist/filepond.js"></script>
-                
-                <!-- Your file upload initialization script -->
-                <script>
-                    FilePond.registerPlugin(FilePondPluginImagePreview);
-                    FilePond.registerPlugin(FilePondPluginImageResize);
-                    FilePond.registerPlugin(FilePondPluginFileEncode);
-                    FilePond.setOptions({
-                        stylePanelAspectRatio: 150 / 100,
-                        imageResizeTargetWidth: 100,
-                        imageResizeTargetHeight: 150
-                    });
+    <div class="container">
+        <%- include('../partials/header.ejs') %>
+            <div class="inner-container">
+                <%- include('../partials/errorMessage.ejs') %>
+                    <%- body %>
+            </div>
 
-                    const inputElement = document.querySelector('input[type="file"]');
-                    const pond = FilePond.create(inputElement);
-                    FilePond.parse(document.body);
-                </script>
+        </div>
+
+
+    <!-- FilePond scripts -->
+    <script src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js"></script>
+    <script src="https://unpkg.com/filepond-plugin-image-resize/dist/filepond-plugin-image-resize.js"></script>
+    <script src="https://unpkg.com/filepond-plugin-file-encode/dist/filepond-plugin-file-encode.js"></script>
+    <script src="https://unpkg.com/filepond/dist/filepond.js"></script>
+
+    <!-- Your file upload initialization script -->
+    <script>
+        FilePond.registerPlugin(FilePondPluginImagePreview);
+        FilePond.registerPlugin(FilePondPluginImageResize);
+        FilePond.registerPlugin(FilePondPluginFileEncode);
+        FilePond.setOptions({
+            stylePanelAspectRatio: 150 / 100,
+            imageResizeTargetWidth: 100,
+            imageResizeTargetHeight: 150
+        });
+
+        const inputElement = document.querySelector('input[type="file"]');
+        const pond = FilePond.create(inputElement);
+        FilePond.parse(document.body);
+    </script>
 </body>
 
 </html>

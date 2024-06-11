@@ -1,20 +1,26 @@
 <form action="/authors" method="GET">
     <label for="name">Name</label>
     <input type="search" id="name" name="name" value="<%= searchOptions.name %>">
-    <button type="submit">Search</button>
+    <button class="btn" type="submit">Search</button>
 </form>
 
 <ul>
     <% authors.forEach(author => { %>
         <li>
-            <%= author.name %>
-            <a href="/authors/<%= author.id %>">View</a>
-            <a href="/authors/<%= author.id %>/edit">Edit</a>
-            <!-- Ensure the Delete form uses POST method with a hidden method override if necessary -->
+            <div>
 
-            <!-- Include the delete form partial correctly -->
-            <%- include('../partials/deleteForm', {url: `/authors/${author.id}`}) %>
-        </li>
-    <%
+                <%= author.name %>
+            </div>
+            <div class="btn-row">
+
+                <a class="btn btn-primary" href="/authors/<%= author.id %>">View</a>
+            <a  class="btn btn-primary" href="/authors/<%= author.id %>/edit">Edit</a>
+        <!-- Ensure the Delete form uses POST method with a hidden method override if necessary -->
+
+    <!-- Include the delete form partial correctly -->
+<%- include('../partials/deleteForm', {url: `/authors/${author.id}`}) %>
+</div>
+</li>
+<%
  }) %>
 </ul>
