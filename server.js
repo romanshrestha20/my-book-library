@@ -30,7 +30,7 @@ DB.once('open', () => console.log('Connected to Mongoose'));
 app.use(express.json());
 
 
-
+// view engine setup
 app.set('view engine', 'ejs');
 app.set('views', __dirname + '/public/views');
 app.set('layout', 'layouts/layout');
