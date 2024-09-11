@@ -1,12 +1,15 @@
-<% if (locals.errorMessage != null) { %>
-    <div class="alert alert-danger alert-dismissible fade show" role="alert">
-        <%= locals.errorMessage %>
-    </div>
-<% } %>
+<div>
+    <% if (locals.errorMessage) { %>
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <%= locals.errorMessage %>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    <% } %>
 
-<!-- <% if (locals.successMessage != null) { %>
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
-        <%= locals.successMessage %>
-    </div>
- 
-<% } %> -->
+    <% if (locals.successMessage) { %>
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <%= locals.successMessage %>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    <% } %>
+</div>
