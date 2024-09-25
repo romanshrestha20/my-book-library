@@ -6,7 +6,7 @@
 @import 'shared/author.css';
 @import 'shared/books.css';
 
-:root {
+:root {    
   font-family: 'Gotham Rounded';
   font-size: 20px;
   color: var(--color-text-light);
