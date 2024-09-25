@@ -1,51 +1,50 @@
-if (process.env.NODE_ENV !== 'production') {
-    require('dotenv').config();
-
+if (process.env.NODE_ENV !== "production") {
+  require("dotenv").config();
 }
-const express = require('express');
-const bodyParser = require('body-parser');
+
+const express = require("express");
 const app = express();
-const methodOverride = require('method-override');
-app.use(methodOverride('_method'));
+const methodOverride = require("method-override");
+const expressLayouts = require("express-ejs-layouts");
+const mongoose = require("mongoose");
+
+// Middleware for method override
+app.use(methodOverride("_method"));
 
 // Increase the limit to handle larger files
-app.use(bodyParser.json({ limit: '50mb' }));
-app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
+app.use(express.json({ limit: "50mb" }));
+app.use(express.urlencoded({ limit: "50mb", extended: true }));
 
-const expressLayouts = require('express-ejs-layouts');
-const ejs = require('ejs');
+// View engine setup
+app.set("view engine", "ejs");
+app.set("views", __dirname + "/public/views");
+app.set("layout", "layouts/layout");
+app.use(expressLayouts);
 
-const indexRouter = require('./routes/routes');
-const authorRouter = require('./routes/authors');
-const bookRouter = require('./routes/books');
-
-// Database
-const mongoose = require('mongoose');
-mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true, useUnifiedTopology: true });
-const DB = mongoose.connection;
-DB.on('error', (error) => console.error(error));
-DB.once('open', () => console.log('Connected to Mongoose'));
-
-// Middleware
-app.use(express.json());
-
-
-// view engine setup
-app.set('view engine', 'ejs');
-app.set('views', __dirname + '/public/views');
-app.set('layout', 'layouts/layout');
-app.use(expressLayouts); 
-const port = process.env.PORT || 3003;
-
-app.use(bodyParser.urlencoded({limit:'10mb',extended:true}))
 // Routes
-app.use(indexRouter)
-app.use('/authors',authorRouter)
-app.use('/books',bookRouter)
-app.use(express.static('public'));
+const indexRouter = require("./routes/routes");
+const authorRouter = require("./routes/authors");
+const bookRouter = require("./routes/books");
 
+// Static assets
+app.use(express.static("public"));
 
+// Database connection
+mongoose
+  .connect(process.env.DATABASE_URL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => console.log("Connected to MongoDB"))
+  .catch((error) => console.error("Error connecting to MongoDB:", error));
+
+// Routes middleware
+app.use("/", indexRouter);
+app.use("/authors", authorRouter);
+app.use("/books", bookRouter);
+
+// Server setup
+const port = process.env.PORT || 3003;
 app.listen(port, () => {
-    console.log(`Example app listening at http://localhost:${port}`);
-    }
-);
+  console.log(`My Book Library app is running at http://localhost:${port}`);
+});
