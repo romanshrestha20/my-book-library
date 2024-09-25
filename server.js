@@ -31,10 +31,7 @@ app.use(express.static("public"));
 
 // Database connection
 mongoose
-  .connect(process.env.DATABASE_URL, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
+  .connect(process.env.DATABASE_URL)
   .then(() => console.log("Connected to MongoDB"))
   .catch((error) => console.error("Error connecting to MongoDB:", error));
 
