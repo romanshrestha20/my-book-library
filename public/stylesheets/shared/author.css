@@ -1,10 +1,26 @@
-.aruthor-row {
+.author-row {
     display: flex;
     justify-content: space-between;
+    align-items: center; /* Align items vertically in the center */
     margin-bottom: 1rem;
+    padding: 0 1rem; /* Add some horizontal padding for spacing */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1); /* Optional: Add a subtle border for separation */
 }
 
 .author-name {
     font-size: 1.5rem;
     font-weight: bold;
+    color: var(--color-text-light); /* Ensure consistency with the text color */
+    text-transform: capitalize; /* Optional: Capitalize author names */
+}
+
+@media (max-width: 768px) {
+    .author-name {
+        font-size: 1.3rem; /* Slightly reduce font size on smaller screens */
+    }
+
+    .author-row {
+        flex-direction: column; /* Stack the author name and content vertically on small screens */
+        align-items: flex-start; /* Align items to the left */
+    }
 }

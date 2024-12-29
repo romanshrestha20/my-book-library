@@ -1,10 +1,29 @@
 :root {
+  /* Base Hue */
   --color-base-hue: 540;
+
+  /* Derived Colors */
   --color-danger-hue-offset: 180;
-  --color-danger-hue: calc(
-    var(--color-base-hue) - var(--color-danger-hue-offset)
-  );
+  --color-danger-hue: calc(var(--color-base-hue) - var(--color-danger-hue-offset));
+  
+  /* Background Colors */
   --color-background-dark: hsl(var(--color-base-hue), 100%, 8%);
   --color-background-light: hsl(var(--color-base-hue), 100%, 16%);
+  --color-background-lighter: hsl(var(--color-base-hue), 100%, 25%); /* Lighter background for contrast */
+
+  /* Text Colors */
   --color-text-light: hsl(var(--color-base-hue), 100%, 87%);
+  --color-text-dark: hsl(var(--color-base-hue), 100%, 40%); /* Dark text color for contrast */
+  
+  /* Button/Accent Colors */
+  --color-accent: hsl(var(--color-base-hue), 100%, 55%); /* Bright accent for buttons and highlights */
+  --color-accent-dark: hsl(var(--color-base-hue), 100%, 45%); /* Darker accent for hover/active states */
+
+  /* Danger Colors */
+  --color-danger-hue-light: hsl(var(--color-danger-hue), 100%, 80%);
+  --color-danger-hue-dark: hsl(var(--color-danger-hue), 100%, 40%);
+
+  /* Transparent Colors */
+  --color-transparent-light: rgba(255, 255, 255, 0.5); /* Light transparent white */
+  --color-transparent-dark: rgba(0, 0, 0, 0.5); /* Dark transparent black */
 }

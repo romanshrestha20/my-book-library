@@ -2,13 +2,17 @@
   --nav-title-font-size: 3rem;
   --nav-title-font-weight: bold;
   --nav-link-font-weight: 300;
+  --nav-link-padding: 1rem;
+  --nav-link-hover-color: white;
+  --nav-link-color: var(--color-text-light);
 }
 
 .header-title {
-  color: var(--color-text-light);
+  color: var(--nav-link-color);
   text-decoration: none;
   font-size: var(--nav-title-font-size);
   font-weight: var(--nav-title-font-weight);
+  transition: color 0.3s ease; /* Smooth transition on hover */
 }
 
 .header-nav {
@@ -17,6 +21,7 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 5rem;
+  padding: 1rem; /* Added padding for spacing */
 }
 
 .header-nav ul {
@@ -31,11 +36,29 @@
 
 .header-nav li a {
   text-decoration: none;
-  color: var(--color-text-light);
+  color: var(--nav-link-color);
   font-weight: var(--nav-link-font-weight);
-  padding: 1rem;
+  padding: var(--nav-link-padding);
+  transition: color 0.3s ease, transform 0.3s ease; /* Added smooth hover transition */
 }
 
-.header-nav li a:hover, .header-title:hover {
-  color: white;
+.header-nav li a:hover,
+.header-title:hover {
+  color: var(--nav-link-hover-color);
+  transform: scale(1.05); /* Added slight zoom effect on hover */
+}
+
+@media (max-width: 768px) {
+  .header-nav {
+    flex-direction: column;
+    align-items: flex-start; /* Stack items vertically on smaller screens */
+  }
+
+  .header-nav ul {
+    flex-direction: column;
+  }
+
+  .header-nav li a {
+    padding: 0.8rem 0; /* Adjusted padding for smaller screens */
+  }
 }
