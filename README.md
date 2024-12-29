@@ -49,9 +49,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - [MongoDB](https://www.mongodb.com/)
 
 ## Screenshots
-// Add screenshots of the application here
-![Home Page](screenshots/home.png)
-![Book Details](screenshots/book-details.png)
+![Home Page]![alt text](screenshots/book-details.png)
+![Book Details] ![alt text](image-1.png)
 
 ## Technologies Used
 - React
