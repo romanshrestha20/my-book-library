@@ -13,7 +13,7 @@ My Book Library is a web application that allows users to manage their personal 
 ## Installation
 1. Clone the repository:
     ```bash
-    git clone https://github.com/yourusername/my-book-library.git
+    git clone https://github.com/romanshrestha20/my-book-library.git
     ```
 2. Navigate to the project directory:
     ```bash
@@ -49,8 +49,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - [MongoDB](https://www.mongodb.com/)
 
 ## Screenshots
-![Home Page]![alt text](screenshots/book-details.png)
-![Book Details] ![alt text](image-1.png)
+![alt text](image-3.png)
+![alt text](image-2.png)
 
 ## Technologies Used
 - React
